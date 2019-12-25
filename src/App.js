@@ -26,6 +26,7 @@ const App = observer(() => {
          <div>
             value = {store.pageSize}
             current = {store.currentPage}
+            log = {store.SortedPokemons.pages}
          </div>
          
          <select name="select" onChange={handleChange} value={store.pageSize} className="d-block">
@@ -34,14 +35,14 @@ const App = observer(() => {
             <option value="50">50</option>
          </select>
          {
-            store.pokemons.length < 100 ? <Loader/> : <Table data={store.SortedPokemons}/>
+            store.pokemons.length < 100 ? <Loader/> : <Table data={store.SortedPokemons.chunkData}/>
          }
          <ReactPaginate
             previousLabel={'<'}
             nextLabel={'>'}
             breakLabel={'...'}
             breakClassName={'break-me'}
-            pageCount={store.pages}
+            pageCount={store.SortedPokemons.pages}
             forcePage={store.currentPage}
             marginPagesDisplayed={2}
             pageRangeDisplayed={5}

@@ -1,7 +1,6 @@
 import React from 'react'
 
 export const Table = ({data}) => {
-   debugger
    return (
       <div className="table-wrap">
          <table>
