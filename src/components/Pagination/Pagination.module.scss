@@ -1,0 +1,17 @@
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    .selectPages {
+        display: block;
+        width: 70px;
+        border: 1px solid #333;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .pagination {
+        padding: 20px 5px;
+    }
+}  

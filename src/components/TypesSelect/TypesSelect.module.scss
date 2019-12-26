@@ -1,0 +1,30 @@
+.typesList {
+   display: flex;
+   justify-content: center;
+   padding: 0 2rem !important;
+   flex-wrap: wrap;
+   li {
+      width: 10%;
+      height: 50px;
+      line-height: 44px;
+      cursor: pointer;
+      margin: 0 15px 15px;
+      text-align: center;
+      font-weight: 700;
+      border: transparent 3px solid;
+      &.active {
+         border: red 3px solid;
+      }
+   }
+   
+}
+
+@media screen and (max-width: 768px) {
+   .typesList {
+      justify-content: space-between;
+      li {
+         width: 48%;
+         margin: 0 0 15px;
+      }
+   }
+}  

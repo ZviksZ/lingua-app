@@ -1,19 +1,22 @@
-import React        from 'react'
-import {colorArray} from "../helpers/colorArray.js";
+import React from 'react'
+import style from './TypesSelect.module.scss'
 
-export const TypesSelect = ({types, onClick}) => {
+export const TypesSelect = ({types, onClick, filtered}) => {
    return (
-      <ul>
-
-         {
-            types.map((t, index) => (
-               <li key={`f${(~~(Math.random() * 1e8)).toString(16)}`}
-                   style={{background: `${t.color}`}}
-                   onClick={() => onClick(t.name)}>
-                  {t.name} {t.color} {t.i}
-               </li>
-            ))
-         }
-      </ul>
+      <>
+         <h5 className="text-center">Choose type</h5>
+         <ul className={style.typesList}>
+            {
+               types.map(t => (
+                  <li key={`f${(~~(Math.random() * 1e8)).toString(16)}`}
+                      style={{background: `${t.color}`}}
+                      className={filtered.some(f => f === t.name) ? style.active : null}
+                      onClick={() => onClick(t.name)}>
+                     {t.name}
+                  </li>
+               ))
+            }
+         </ul>
+      </>
    )
 }

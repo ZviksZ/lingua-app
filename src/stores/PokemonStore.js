@@ -11,7 +11,7 @@ class PokemonStore {
    search: '';
    pageSize: 20;
    currentPage: 0;
-   filterType: ['poison'];
+   filterType: [];
 
    get SortedPokemons() {
       const {pokemons, search, filterType} = this
@@ -19,7 +19,7 @@ class PokemonStore {
       let filteredData
       if (!search && !filterType) {
          filteredData = pokemons
-      } else if (filterType && !search) {
+      } else if (filterType.length > 0 && !search) {
          filteredData = []
          pokemons.forEach(data => {            
             let filtered = data.types.filter(types => filterType.some(t => t === types.type.name))
@@ -36,7 +36,9 @@ class PokemonStore {
          filteredData = filteredData.filter(item => {            
             return item['name'].toLowerCase().includes(search.toLowerCase())
          })         
-      } 
+      } else {
+         filteredData = pokemons
+      }
       let size = this.pageSize || 10
       let current = this.currentPage || 0
       let orderData = _.orderBy(filteredData, ['id'], 'asc')
