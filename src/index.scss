@@ -29,3 +29,10 @@ code {
 .d-block {
   display: block;
 }
+
+.pagination li {
+  cursor: pointer;
+  a {
+    outline: none;
+  }
+}
